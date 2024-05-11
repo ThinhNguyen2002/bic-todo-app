@@ -25,9 +25,12 @@ import LoginWithSocial from 'components/loginSocial';
 import CheckboxIcon from 'components/svg/checkboxIcon';
 import TickIcon from 'components/svg/tickIcon';
 import {REGEX_VALIDATION} from 'constants/regex';
+import {signUp} from 'services/authorization';
+import {useCredentialHandler} from 'customHooks/useCredentialHandler';
 
 const SignUpScreen: FunctionComponent<SignUpScreenProps> = ({navigation}) => {
   const {top, bottom} = useSafeAreaInsets();
+  const {setLoginWithNewCredential} = useCredentialHandler();
   const {isLoading, showLoading} = useLoadingToggle();
   const [hidePass, setHidePass] = useState(true);
   const [passwordConditions, setPasswordConditions] = useState({
@@ -39,7 +42,20 @@ const SignUpScreen: FunctionComponent<SignUpScreenProps> = ({navigation}) => {
     noWhiteSpace: false,
   });
 
-  const handleConfirm = () => {};
+  const handleConfirm = async (data: UserSignUpFormType) => {
+    showLoading(true);
+    try {
+      const dataRes = await signUp(data);
+      console.log('first', dataRes);
+
+      if (dataRes) {
+        setLoginWithNewCredential(dataRes);
+      }
+    } catch (error) {
+      // To-do: handle error
+    }
+    showLoading(false);
+  };
 
   const initialValuesForm: UserSignUpFormType = {
     email: '',
