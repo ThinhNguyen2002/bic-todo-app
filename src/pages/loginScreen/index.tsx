@@ -16,7 +16,7 @@ import ButtonCustom from 'components/buttonCustom';
 import {useLoadingToggle} from 'customHooks/useLoadingToggle';
 import LoginWithSocial from 'components/loginSocial';
 
-const LoginScreen: FunctionComponent<LoginProps> = () => {
+const LoginScreen: FunctionComponent<LoginProps> = ({navigation}) => {
   const {isLoading, showLoading} = useLoadingToggle();
   const [hidePass, setHidePass] = useState(true);
 
@@ -143,7 +143,9 @@ const LoginScreen: FunctionComponent<LoginProps> = () => {
 
   // #region Sign up
   const renderSignUp = useMemo(() => {
-    const handlePress = () => {};
+    const handlePress = () => {
+      navigation.navigate('SignUpScreen');
+    };
 
     return (
       <PressBtn onPress={handlePress}>
@@ -159,7 +161,7 @@ const LoginScreen: FunctionComponent<LoginProps> = () => {
         </Text>
       </PressBtn>
     );
-  }, []);
+  }, [navigation]);
 
   const renderPrivacyPolicy = useMemo(() => {
     return (

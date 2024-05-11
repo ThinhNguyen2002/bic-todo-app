@@ -15,4 +15,5 @@ export const COLORS = {
   charcoal: '#555555',
   border: '#888888',
   overlay3: 'rgba(222,224,226,0.4)',
+  limeGreen: '#008000',
 };
