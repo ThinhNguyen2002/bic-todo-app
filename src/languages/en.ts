@@ -42,5 +42,11 @@ export default {
       noWhiteSpace: "First and last characters don't contain whitespace",
       signUp: 'Sign Up',
     },
+    bottomTab: {
+      HomeScreen: 'Home',
+      ImportanceScreen: 'Importance',
+      NotificationScreen: 'Notification',
+      MenuScreen: 'Menu',
+    },
   },
 };

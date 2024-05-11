@@ -1,10 +1,7 @@
 import {Platform} from 'react-native';
-
-var env = require('../../env.json');
-
-export const MODE = env.MODE;
 export const isIOS = Boolean(Platform.OS === 'ios');
 
 export const STORAGE_KEY = {
-  KEY_AUTH: '',
+  KEY_AUTH: 'BIC_TO_DO_APP_AUTH',
+  KEY_STORE_DATA: 'BIC_TO_DO_APP_STORE_DATA_AUTH',
 };
