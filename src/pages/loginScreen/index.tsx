@@ -15,12 +15,25 @@ import EyeSvg from 'components/svg/eyeIcon';
 import ButtonCustom from 'components/buttonCustom';
 import {useLoadingToggle} from 'customHooks/useLoadingToggle';
 import LoginWithSocial from 'components/loginSocial';
+import {loginAPI} from 'services/authorization';
+import {useCredentialHandler} from 'customHooks/useCredentialHandler';
 
 const LoginScreen: FunctionComponent<LoginProps> = ({navigation}) => {
   const {isLoading, showLoading} = useLoadingToggle();
+  const {setLoginWithNewCredential} = useCredentialHandler();
   const [hidePass, setHidePass] = useState(true);
 
-  const handleConfirm = () => {};
+  const handleConfirm = async (data: UserLoginFormType) => {
+    showLoading(true);
+    try {
+      const dataRes = await loginAPI(data);
+      if (dataRes) {
+        setLoginWithNewCredential(dataRes);
+      }
+    } catch (error) {
+      // Todo: Handle error
+    }
+  };
 
   const initialValuesForm: UserLoginFormType = {
     email: '',
