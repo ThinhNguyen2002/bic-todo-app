@@ -1,8 +1,7 @@
 import React from 'react';
 import {Edge, SafeAreaView} from 'react-native-safe-area-context';
-import {styles} from './styles';
 import {SafeAreaViewCustomProps} from './type';
-import {StatusBar, View} from 'react-native';
+import {StatusBar} from 'react-native';
 
 const SafeAreaViewCustom: React.FunctionComponent<SafeAreaViewCustomProps> = ({
   children,
@@ -12,7 +11,7 @@ const SafeAreaViewCustom: React.FunctionComponent<SafeAreaViewCustomProps> = ({
   ignoreTop,
   ignoreBottom,
   isChangeStatusBar = false,
-  testID,
+  barStyle = 'dark-content',
 }) => {
   const dataEdge: Edge[] = [];
   if (!ignoreLeft) {
@@ -34,10 +33,8 @@ const SafeAreaViewCustom: React.FunctionComponent<SafeAreaViewCustomProps> = ({
 
   return (
     <SafeAreaView style={style} edges={dataEdge}>
-      {!isChangeStatusBar && <StatusBar barStyle="light-content" />}
-      <View testID={testID || 'overlay'} style={styles.gradient}>
-        {children}
-      </View>
+      {!isChangeStatusBar && <StatusBar barStyle={barStyle} />}
+      {children}
     </SafeAreaView>
   );
 };

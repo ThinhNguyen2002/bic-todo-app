@@ -1,4 +1,4 @@
-import {ViewStyle} from 'react-native';
+import {StatusBarStyle, ViewStyle} from 'react-native';
 import {SafeAreaViewProps} from 'react-native-safe-area-context';
 
 export type SafeAreaViewCustomProps = {
@@ -8,4 +8,5 @@ export type SafeAreaViewCustomProps = {
   ignoreBottom?: boolean;
   contentContainerStyle?: ViewStyle;
   isChangeStatusBar?: boolean;
+  barStyle?: StatusBarStyle;
 } & SafeAreaViewProps;

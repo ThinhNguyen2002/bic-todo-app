@@ -1,17 +1,18 @@
-export default {
-  WHITE: '#FFF',
-  BLACK: '#000',
-  OVERLAY: 'rgba(0,0,0,0.4)',
-  OVERLAY_1: 'rgba(0,0,0,0.5)',
-};
-
 export const COLORS = {
+  mainColor: '#8043cc',
   black: '#000000',
   grey: '#7B7680',
   white: '#FFFFFF',
   red: '#E60000',
-  blue: '#43D498',
+  blue: '#3399FF',
   purple: '#9F5AFF',
   yellow: '#EAB308',
   green: '#0D3C61',
+  white40: 'rgba(255, 255, 255, 0.40)',
+  white60: 'rgba(255, 255, 255, 0.60)',
+  inputPlaceholder: '#FFFFFF99',
+  transparent: 'transparent',
+  charcoal: '#555555',
+  border: '#888888',
+  overlay3: 'rgba(222,224,226,0.4)',
 };
