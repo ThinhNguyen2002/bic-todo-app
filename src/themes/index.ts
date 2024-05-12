@@ -3,6 +3,9 @@ import {MONTSERRAT_MEDIUM} from 'constants/fontStyle';
 import {SIZE_VALUE} from 'constants/size';
 
 export const themeStyles = {
+  flex1: {
+    flex: 1,
+  },
   // This is the default style for input
   primaryInput: {
     inputStyle: {
