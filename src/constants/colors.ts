@@ -1,5 +1,6 @@
 export const COLORS = {
   mainColor: '#8043cc',
+  mediumPurple: 'rgba(128, 67, 204, 0.9)',
   black: '#000000',
   grey: '#7B7680',
   white: '#FFFFFF',
@@ -16,4 +17,5 @@ export const COLORS = {
   border: '#888888',
   overlay3: 'rgba(222,224,226,0.4)',
   limeGreen: '#008000',
+  lavenderMist: '#F4EFFB',
 };

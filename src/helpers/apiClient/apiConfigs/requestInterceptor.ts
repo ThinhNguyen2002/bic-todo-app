@@ -1,7 +1,7 @@
 import axios, {AxiosRequestConfig} from 'axios';
 import {STORAGE_KEY} from 'constants/index';
 import {LocalStorage} from 'helpers/localStorage';
-import {AuthInfo} from 'models/auth';
+import {AuthInfo} from 'models/task';
 import {store} from 'store';
 
 export const requestInterceptor = async (config: AxiosRequestConfig) => {

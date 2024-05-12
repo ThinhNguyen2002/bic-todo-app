@@ -1,5 +1,6 @@
 export default {
   translation: {
+    appName: 'BIIC Todo App',
     validateMessage: {
       required: 'This field is required',
       invalidEmail: 'Invalid email format',
@@ -47,6 +48,15 @@ export default {
       ImportanceScreen: 'Importance',
       NotificationScreen: 'Notification',
       MenuScreen: 'Menu',
+    },
+    addTaskScreen: {
+      addTask: 'Add a Task',
+      title: 'Title',
+      titlePlaceholder: 'Add a title',
+      note: 'Note',
+      notePlaceholder: 'Add a note',
+      importance: 'This task is important',
+      addTaskBtn: 'Add Task',
     },
   },
 };
