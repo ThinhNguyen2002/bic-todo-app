@@ -6,6 +6,7 @@ import LoadingOverlay from 'components/loadingOverlay';
 import {useAppSelector} from 'store';
 import SignUpScreen from 'pages/signUpScreen';
 import BottomTabNavigator from './bottomTabNavigator';
+import BottomSheetTask from 'components/bottomSheetTask';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
@@ -32,6 +33,7 @@ const RootNavigator = () => {
       </RootStack.Navigator>
 
       {/* Modal global */}
+      <BottomSheetTask />
       {isLoading && <LoadingOverlay />}
     </>
   );
