@@ -15,7 +15,6 @@ export const validateUserSignUpForm = yup.object().shape({
     .required('validateMessage.required'),
   fullName: yup.string().required('validateMessage.required'),
   username: yup.string().required('validateMessage.required'),
-  checkbox: yup.boolean().oneOf([true]),
 });
 
 export const validateAddNewTaskForm = yup.object({

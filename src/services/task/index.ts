@@ -8,7 +8,7 @@ export const createNewTask = async (
 ): Promise<boolean> => {
   try {
     const user = await LocalStorage.getDataObject<UserCredential>(
-      STORAGE_KEY.KEY_STORE_DATA_AUTH,
+      STORAGE_KEY.KEY_AUTH,
     );
 
     if (!user) {
@@ -59,8 +59,10 @@ export const getListTask = async () => {
 
     // Get email of user from local storage
     const user = await LocalStorage.getDataObject<UserCredential>(
-      STORAGE_KEY.KEY_STORE_DATA_AUTH,
+      STORAGE_KEY.KEY_AUTH,
     );
+    console.log('user', user);
+    console.log('allTaskData', JSON.stringify(allTaskData));
 
     if (!allTaskData || !user) {
       return [];
@@ -68,6 +70,7 @@ export const getListTask = async () => {
 
     // Find the task data of the user
     const taskData = allTaskData.find(item => item.email === user.email);
+    console.log('taskData', taskData);
 
     // If the task data is not found, return empty array
     if (!taskData) {
@@ -88,7 +91,7 @@ export const updateTask = async (data: CreateTaskRequest) => {
     );
     // Get email of user from local storage
     const user = await LocalStorage.getDataObject<UserCredential>(
-      STORAGE_KEY.KEY_STORE_DATA_AUTH,
+      STORAGE_KEY.KEY_AUTH,
     );
 
     if (!allTaskData) {

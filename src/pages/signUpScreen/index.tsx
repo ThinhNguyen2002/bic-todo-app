@@ -27,6 +27,7 @@ import TickIcon from 'components/svg/tickIcon';
 import {REGEX_VALIDATION} from 'constants/regex';
 import {signUp} from 'services/authorization';
 import {useCredentialHandler} from 'customHooks/useCredentialHandler';
+import {SIZE_VALUE} from 'constants/size';
 
 const SignUpScreen: FunctionComponent<SignUpScreenProps> = ({navigation}) => {
   const {top, bottom} = useSafeAreaInsets();
@@ -282,13 +283,17 @@ const SignUpScreen: FunctionComponent<SignUpScreenProps> = ({navigation}) => {
 
   // #region Button login
   const canSubmit = useMemo(() => {
+    console.log(
+      isValid,
+      Object.values(passwordConditions).every(condition => condition),
+      values.checkbox,
+    );
     return (
       isValid &&
-      dirty &&
       Object.values(passwordConditions).every(condition => condition) &&
       values.checkbox
     );
-  }, [isValid, dirty, passwordConditions, values.checkbox]);
+  }, [isValid, passwordConditions, values.checkbox]);
   const renderButtonLogin = useMemo(() => {
     const handlePress = () => {
       handleSubmit();
@@ -361,7 +366,7 @@ const SignUpScreen: FunctionComponent<SignUpScreenProps> = ({navigation}) => {
       <KeyboardAwareScrollView
         contentContainerStyle={[
           styles.container,
-          {paddingTop: top, paddingBottom: bottom},
+          {paddingTop: top, paddingBottom: bottom + SIZE_VALUE._10},
         ]}
         showsVerticalScrollIndicator={false}>
         <Image source={LOGO} style={styles.logo} />
