@@ -59,5 +59,12 @@ export default {
       importance: 'This task is important',
       addTaskBtn: 'Add Task',
     },
+    profileScreen: {
+      account: 'Account Center',
+      biicGroup: 'BIIC Group',
+      biicChat: 'BIIC Chat',
+      help: 'Help',
+      logout: 'Log out',
+    },
   },
 };
