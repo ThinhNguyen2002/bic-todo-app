@@ -19,6 +19,21 @@ export function useCredentialHandler() {
     await LocalStorage.storeDataByObject(STORAGE_KEY.KEY_AUTH, credential);
   };
 
+  const getUserCredential = async (): Promise<UserCredential | null> => {
+    const dataLocal = await LocalStorage.getDataObject<UserCredential>(
+      STORAGE_KEY.KEY_AUTH,
+    );
+
+    if (!dataLocal) {
+      return null;
+    }
+    return {
+      email: dataLocal?.email,
+      fullName: dataLocal?.fullName,
+      username: dataLocal?.username,
+    };
+  };
+
   const setLogout = async () => {
     dispatch(setIsLogin(false));
     await LocalStorage.removeData(STORAGE_KEY.KEY_AUTH);
@@ -42,5 +57,6 @@ export function useCredentialHandler() {
     setLoginWithNewCredential,
     setLogout,
     checkUserLogin,
+    getUserCredential,
   };
 }
