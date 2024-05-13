@@ -20,8 +20,12 @@ export const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
-    marginBottom: SIZE_VALUE._40,
+    marginBottom: SIZE_VALUE._30,
     alignItems: 'center',
+
+    paddingBottom: SIZE_VALUE._10,
+    borderBottomColor: COLORS.mainColor,
+    borderBottomWidth: SIZE_VALUE._1,
   },
   logo: {
     width: SIZE_VALUE._40,
@@ -67,6 +71,9 @@ export const styles = StyleSheet.create({
     ...MONTSERRAT_MEDIUM._16,
     color: COLORS.white,
   },
+  textItemCompleted: {
+    textDecorationLine: 'line-through',
+  },
   textItemNote: {
     ...MONTSERRAT_MEDIUM._14,
     color: COLORS.white40,
@@ -84,5 +91,12 @@ export const styles = StyleSheet.create({
     padding: SIZE_VALUE._10,
     borderWidth: SIZE_VALUE._1,
     borderColor: COLORS.border,
+  },
+  empty: {
+    flex: 1,
+  },
+  emptyText: {
+    ...MONTSERRAT_SEMI_BOLD._24,
+    color: COLORS.mainColor,
   },
 });

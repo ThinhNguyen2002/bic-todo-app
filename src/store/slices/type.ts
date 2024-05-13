@@ -1,4 +1,5 @@
 import {BottomSheetAction} from 'components/bottomSheetTask/type';
+import {TaskItemType} from 'models/task';
 
 export type InitialAppSlideState = {
   isLoading: boolean;
@@ -7,6 +8,7 @@ export type InitialAppSlideState = {
 
 export type InitialUserSlideState = {
   isLogin: boolean;
+  listTask?: TaskItemType[];
 };
 
 export type InitialBottomSheetSlideState = {

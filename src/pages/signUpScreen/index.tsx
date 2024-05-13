@@ -8,7 +8,7 @@ import React, {
 import TextTranslation from 'components/textTranslation';
 import {SignUpScreenProps, UserSignUpFormType} from './type';
 import SafeAreaViewCustom from 'components/safeAreaViewCustom';
-import {Image, Pressable as PressBtn, Text, View} from 'react-native';
+import {Alert, Image, Pressable as PressBtn, Text, View} from 'react-native';
 import {styles} from './styles';
 import {LOGO} from 'constants/image';
 import {useFormik} from 'formik';
@@ -46,11 +46,14 @@ const SignUpScreen: FunctionComponent<SignUpScreenProps> = ({navigation}) => {
     showLoading(true);
     try {
       const dataRes = await signUp(data);
-      console.log('first', dataRes);
 
       if (dataRes) {
         setLoginWithNewCredential(dataRes);
+
+        return;
       }
+
+      Alert.alert('Sign up failed');
     } catch (error) {
       // To-do: handle error
     }

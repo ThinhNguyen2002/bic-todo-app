@@ -11,7 +11,7 @@ const SafeAreaViewCustom: React.FunctionComponent<SafeAreaViewCustomProps> = ({
   ignoreTop,
   ignoreBottom,
   isChangeStatusBar = false,
-  barStyle = 'dark-content',
+  barStyle = 'light-content',
 }) => {
   const dataEdge: Edge[] = [];
   if (!ignoreLeft) {

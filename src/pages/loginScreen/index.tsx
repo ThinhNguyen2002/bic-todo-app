@@ -2,7 +2,7 @@ import React, {FunctionComponent, useCallback, useMemo, useState} from 'react';
 import TextTranslation from 'components/textTranslation';
 import {LoginProps, UserLoginFormType} from './type';
 import SafeAreaViewCustom from 'components/safeAreaViewCustom';
-import {Image, Pressable as PressBtn, Text, View} from 'react-native';
+import {Alert, Image, Pressable as PressBtn, Text, View} from 'react-native';
 import {styles} from './styles';
 import {LOGO} from 'constants/image';
 import {useFormik} from 'formik';
@@ -29,10 +29,16 @@ const LoginScreen: FunctionComponent<LoginProps> = ({navigation}) => {
       const dataRes = await loginAPI(data);
       if (dataRes) {
         setLoginWithNewCredential(dataRes);
+
+        return;
       }
+
+      Alert.alert('Login failed');
     } catch (error) {
       // Todo: Handle error
     }
+
+    showLoading(false);
   };
 
   const initialValuesForm: UserLoginFormType = {
