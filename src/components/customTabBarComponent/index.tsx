@@ -23,6 +23,8 @@ const icons = {
   MenuScreen: MenuBottomTabIcon,
 };
 
+const SCREEN_WILL_IMPLEMENT = ['ImportanceScreen', 'NotificationScreen'];
+
 const CustomTabBarComponent: FunctionComponent<
   BottomTabBarProps & CustomTabBarProps
 > = ({state, descriptors, navigation}) => {
@@ -40,7 +42,7 @@ const CustomTabBarComponent: FunctionComponent<
       const {key, name} = state.routes[index];
       const isFocused = state.index === index;
 
-      if (!isFocused) {
+      if (!isFocused && !SCREEN_WILL_IMPLEMENT.includes(name)) {
         navigation.navigate(name);
       }
     },
@@ -84,7 +86,7 @@ const CustomTabBarComponent: FunctionComponent<
           styles.containerContent,
           styles.container,
           {backgroundColor: COLORS.white},
-          {paddingBottom: bottom},
+          {paddingBottom: bottom + SIZE_VALUE._10},
         ]}>
         {renderIcon}
       </View>
