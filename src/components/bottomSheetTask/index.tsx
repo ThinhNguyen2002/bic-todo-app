@@ -1,9 +1,9 @@
 import {
   View,
-  Text,
   StyleSheet,
   Pressable as PressBtn,
   Keyboard,
+  Alert,
 } from 'react-native';
 import React, {
   FunctionComponent,
@@ -28,6 +28,8 @@ import CheckboxIcon from 'components/svg/checkboxIcon';
 import ButtonCustom from 'components/buttonCustom';
 import {useLoadingToggle} from 'customHooks/useLoadingToggle';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {createNewTask} from 'services/task';
+import {updateListTask} from 'store/slices/userSlice';
 
 const BottomSheetTask: FunctionComponent = () => {
   const dispatch = useAppDispatch();
@@ -60,22 +62,34 @@ const BottomSheetTask: FunctionComponent = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (bottomSheetActions === BottomSheetAction.PRESENCE) {
-      bottomSheetRef.current?.snapToIndex(1);
+  const handleConfirm = useCallback(
+    async (data: AddNewTaskFormType) => {
+      showLoading(true);
+      const dataToCreate = {
+        ...data,
+        isCompleted: false,
+        id: Date.now().toString(),
+      };
+      const isCreateSuccess = await createNewTask(dataToCreate);
 
-      dispatch(setBottomSheetAction());
-    }
-  }, [bottomSheetActions, dispatch]);
+      if (isCreateSuccess) {
+        bottomSheetRef.current?.close();
 
-  const handleConfirm = useCallback(() => {
-    console.log('confirm');
-  }, []);
+        dispatch(updateListTask(dataToCreate));
+      } else {
+        Alert.alert('Error', 'Create task failed');
+      }
+
+      showLoading(false);
+    },
+    [dispatch, showLoading],
+  );
 
   const initialValuesForm: AddNewTaskFormType = {
     title: '',
     note: '',
     isImportance: false,
+    isCompleted: false,
   };
 
   const {
@@ -98,6 +112,15 @@ const BottomSheetTask: FunctionComponent = () => {
     validationSchema: validateAddNewTaskForm,
     onSubmit: handleConfirm,
   });
+
+  useEffect(() => {
+    if (bottomSheetActions === BottomSheetAction.PRESENCE) {
+      resetForm();
+      bottomSheetRef.current?.snapToIndex(1);
+
+      dispatch(setBottomSheetAction());
+    }
+  }, [bottomSheetActions, dispatch, resetForm]);
 
   const renderInputTitleTask = useMemo(() => {
     const onFocusTitle = () => {

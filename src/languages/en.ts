@@ -1,6 +1,7 @@
 export default {
   translation: {
     appName: 'BIIC Todo App',
+    emptyTask: 'No task. Let add a task!',
     validateMessage: {
       required: 'This field is required',
       invalidEmail: 'Invalid email format',

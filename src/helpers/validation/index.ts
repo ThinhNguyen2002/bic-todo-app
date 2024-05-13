@@ -20,6 +20,6 @@ export const validateUserSignUpForm = yup.object().shape({
 
 export const validateAddNewTaskForm = yup.object({
   title: yup.string().required('validateMessage.required'),
-  note: yup.string().required('validateMessage.required'),
+  note: yup.string(),
   isImportance: yup.boolean().required('validateMessage.required'),
 });

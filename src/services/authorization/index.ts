@@ -8,7 +8,7 @@ import {UserCredential} from 'customHooks/useCredentialHandler/type';
 const getAllUsers = async (): Promise<DataStorageResponse[]> => {
   try {
     const allData = await LocalStorage.getDataObject<DataStorageResponse[]>(
-      STORAGE_KEY.KEY_STORE_DATA,
+      STORAGE_KEY.KEY_STORE_DATA_AUTH,
     );
     return allData || [];
   } catch (error) {
@@ -70,7 +70,7 @@ export const signUp = async (
 
     // Save updated user array to Local Storage
     await LocalStorage.storeDataByObject(
-      STORAGE_KEY.KEY_STORE_DATA,
+      STORAGE_KEY.KEY_STORE_DATA_AUTH,
       updatedUsers,
     );
 
