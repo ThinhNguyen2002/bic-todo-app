@@ -1,10 +1,76 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Beincom Todo App
 
-# Getting Started
+Beincom is a social platform for community builders to build and grow their communities. As part of your daily work routine, you often have numerous tasks to complete. To ensure you stay organized and don't miss anything, you've decided to create a todo app. Since you frequently use BIC Group and BIC Chat, two apps developed by the company, in your work, you aim to design the todo app's appearance to match the style of these existing company apps.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Table of Contents
 
-## Step 1: Start the Metro Server
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Folder Structure](#folder-structure)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+## Introduction
+
+Beincom is a social platform for community builders to build and grow their communities. This todo app is designed to help you manage your daily tasks efficiently and is styled to match the existing BIC Group and BIC Chat apps.
+
+## Features
+
+### Completed Features:
+- Sign in
+- Sign up
+- Create new task
+- Update task
+
+### Features Pending Implementation:
+- Login with social
+- Delete task
+- Importance and notification screen
+
+## Installation
+
+You can install the app by following these steps:
+
+1. Access Appcenter to download the APK file:
+    [Appcenter Link](https://install.appcenter.ms/users/thinhnguyenvan772-gmail.com/apps/biic-todo-app/distribution_groups/biic%20todo%20app)
+2. Alternatively, you can find the APK file in the source code directory: `android/app/release`
+
+## Folder Structure
+
+The project structure of a React Native application typically includes the following directories and files:
+
+- **src**: This directory contains the main source code of the application, including JavaScript files and other assets such as images and fonts.
+  - **assets**: Asset folder to store all images, vectors, fonts, etc.
+  - **components**: Folder to store any common component that you use throughout your app (such as a generic button).
+  - **constants**: Folder to store any kind of constant that you have.
+  - **helpers**: Common API controllers.
+  - **languages**: Folder to store languages used throughout your app.
+  - **models**: Folder to store object types used throughout your app.
+  - **navigation**: Folder to store the navigators.
+  - **pages**: Contains different pages or screens of your app like HomeScreen, LoginScreen, etc.
+  - **store**: This folder should have all your reducers and store.
+
+
+## Installation
+
+Step-by-step instructions on how to install and set up the project. For example:
+
+1. Clone the repository:
+    ```bash
+    https://github.com/ThinhNguyen2002/bic-todo-app.git
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd bic-todo-app
+    ```
+3. Install dependencies:
+    ```bash
+    npm install
+    ```
+
+4. Start the Metro Server
 
 First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
@@ -18,7 +84,7 @@ npm start
 yarn start
 ```
 
-## Step 2: Start your Application
+5. Start your Application
 
 Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
 
@@ -42,38 +108,11 @@ npm run ios
 yarn ios
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
 
-## Step 3: Modifying your App
+## Contact
 
-Now that you have successfully run the app, let's modify it.
+- Thinh Nguyen
+- Your Email: thinhnguyenvan772@gmail.com
+- Project Link: [https://github.com/ThinhNguyen2002/bic-todo-app](https://github.com/ThinhNguyen2002/bic-todo-app)
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
